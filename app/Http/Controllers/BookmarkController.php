@@ -14,7 +14,9 @@ class BookmarkController extends Controller
      */
     public function index()
     {
-        //
+        return view('bookmark.index', [
+            'bookmarks' => Bookmark::paginate(7)
+        ]);
     }
 
     /**
