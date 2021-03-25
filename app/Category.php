@@ -10,8 +10,8 @@ class Category extends Model
         return $this->hasMany(Bookmark::class);
     }
 
-    public static function takeRandomId(int $amount) {
-        $id = Category::inRandomOrder()->take($amount)->get('id');
-        return $id->isNotEmpty() ? $id[0] : NULL;
+    public static function takeRandomId() {
+        $id = self::inRandomOrder()->take(1)->get('id');
+        return $id->isNotEmpty() ? $id->first() : NULL;
     }
 }
