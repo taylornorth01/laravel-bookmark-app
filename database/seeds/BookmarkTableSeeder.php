@@ -12,8 +12,7 @@ class BookmarkTableSeeder extends Seeder
      */
     public function run()
     {
-        Bookmark::factory()
-                    ->count(config('global.seed'))
-                    ->create();
+        factory(Bookmark::class, config('global.seed'))
+        ->create();
     }
 }

@@ -12,8 +12,7 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        Category::factory()
-                    ->count(floor(config('global.seed') / 10))
-                    ->create();
+        factory(Category::Class, floor(config('global.seed') / 10))
+        ->create();
     }
 }
