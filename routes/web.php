@@ -11,8 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/bookmarks', 'BookmarkController@index')->name('bookmarks.index');

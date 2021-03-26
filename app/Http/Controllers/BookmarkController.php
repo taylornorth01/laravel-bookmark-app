@@ -5,15 +5,14 @@ namespace App\Http\Controllers;
 use App\Bookmark;
 use Illuminate\Http\Request;
 
-class BookmarkController extends Controller
-{
+class BookmarkController extends Controller {
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         return view('bookmark.index', [
             'bookmarks' => Bookmark::paginate(7)
         ]);
@@ -24,8 +23,7 @@ class BookmarkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -35,8 +33,7 @@ class BookmarkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
 
@@ -46,8 +43,7 @@ class BookmarkController extends Controller
      * @param  \App\Bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
-    public function show(Bookmark $bookmark)
-    {
+    public function show(Bookmark $bookmark) {
         //
     }
 
@@ -57,8 +53,7 @@ class BookmarkController extends Controller
      * @param  \App\Bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bookmark $bookmark)
-    {
+    public function edit(Bookmark $bookmark) {
         //
     }
 
@@ -69,8 +64,7 @@ class BookmarkController extends Controller
      * @param  \App\Bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bookmark $bookmark)
-    {
+    public function update(Request $request, Bookmark $bookmark) {
         //
     }
 
@@ -80,8 +74,7 @@ class BookmarkController extends Controller
      * @param  \App\Bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bookmark $bookmark)
-    {
+    public function destroy(Bookmark $bookmark) {
         //
     }
 }
