@@ -3,6 +3,7 @@
 @section('content')
 
 <ul class="nostyle">
+    {{ $bookmarks->links() }}
     @foreach ($bookmarks as $bookmark)
         <li>
             <h1>{{ $bookmark->link_title }}</h1>

@@ -12,3 +12,4 @@
 */
 
 Route::get('/bookmarks', 'BookmarkController@index')->name('bookmarks.index');
+Route::get('/bookmarks/{bookmark}', 'BookmarkController@show')->name('bookmarks.show');

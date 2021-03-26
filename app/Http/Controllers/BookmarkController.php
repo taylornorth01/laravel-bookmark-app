@@ -6,7 +6,7 @@ use App\Bookmark;
 use Illuminate\Http\Request;
 
 class BookmarkController extends Controller {
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -44,7 +44,9 @@ class BookmarkController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show(Bookmark $bookmark) {
-        //
+        return view('bookmark.show', [
+            'bookmark' => $bookmark
+        ]);
     }
 
     /**
