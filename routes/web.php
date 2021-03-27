@@ -12,4 +12,6 @@
 */
 
 Route::get('/bookmarks', 'BookmarkController@index')->name('bookmarks.index');
+Route::post('/bookmarks', 'BookmarkController@store')->name('bookmarks.store');
+Route::get('/bookmarks/create', 'BookmarkController@create')->name('bookmarks.create');
 Route::get('/bookmarks/{bookmark}', 'BookmarkController@show')->name('bookmarks.show');

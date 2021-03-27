@@ -24,7 +24,7 @@ class BookmarkController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        //
+        return view('bookmark.create');
     }
 
     /**
@@ -34,7 +34,8 @@ class BookmarkController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        //
+        Bookmark::create($this->validateBookmark($request));
+        return redirect(route('bookmarks.index'));
     }
 
     /**
@@ -78,5 +79,12 @@ class BookmarkController extends Controller {
      */
     public function destroy(Bookmark $bookmark) {
         //
+    }
+
+    protected function validateBookmark(Request $request) {
+        return $request->validate([
+            'link_title' => 'required|max:100|unique:App\Bookmark,link_title',
+            'url' => 'required|url'
+        ]);
     }
 }
