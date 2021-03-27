@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Bookmark;
 use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\BookmarkRequest;
 
 class BookmarkController extends Controller {
 
@@ -36,8 +37,8 @@ class BookmarkController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-        Bookmark::create($this->validateBookmark($request));
+    public function store(BookmarkRequest $request) {
+        Bookmark::create($request->validated());
         return redirect(route('bookmarks.index'));
     }
 
@@ -82,13 +83,5 @@ class BookmarkController extends Controller {
      */
     public function destroy(Bookmark $bookmark) {
         //
-    }
-
-    protected function validateBookmark(Request $request) {
-        return $request->validate([
-            'link_title' => 'required|max:100|unique:App\Bookmark,link_title',
-            'url' => 'required|url',
-            'category_id' => 'nullable|sometimes|exists:App\Category,id'
-        ]);
     }
 }
