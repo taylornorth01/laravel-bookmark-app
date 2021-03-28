@@ -20,7 +20,7 @@ class BookmarkController extends Controller {
      */
     public function index() {
         return View::make('bookmark.index', [
-            'bookmarks' => Bookmark::paginate(7)
+            'bookmarks' => Bookmark::latest()->paginate(7)
         ]);
     }
 
@@ -80,7 +80,7 @@ class BookmarkController extends Controller {
      */
     public function update(BookmarkRequest $request, Bookmark $bookmark) {
         $bookmark->update($request->validated());
-        return Redirect::route($bookmark->path());
+        return Redirect::route('bookmarks.show', $bookmark);
     }
 
     /**

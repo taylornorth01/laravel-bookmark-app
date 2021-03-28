@@ -18,7 +18,7 @@ class BookmarkRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
-     *  'required|max:100|unique:App\Bookmark,link_title'
+     * 
      * @return array
      */
     public function rules() {
