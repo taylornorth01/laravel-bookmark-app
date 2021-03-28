@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Bookmark;
 use App\Category;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Redirect;
+
 use App\Http\Requests\BookmarkRequest;
 
 class BookmarkController extends Controller {
@@ -15,7 +19,7 @@ class BookmarkController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return view('bookmark.index', [
+        return View::make('bookmark.index', [
             'bookmarks' => Bookmark::paginate(7)
         ]);
     }
@@ -26,7 +30,7 @@ class BookmarkController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('bookmark.create', [
+        return View::make('bookmark.create', [
             'categories' => Category::all()
         ]);
     }
@@ -39,7 +43,7 @@ class BookmarkController extends Controller {
      */
     public function store(BookmarkRequest $request) {
         Bookmark::create($request->validated());
-        return redirect()->route('bookmarks.index');
+        return Redirect::route('bookmarks.index');
     }
 
     /**
@@ -49,7 +53,7 @@ class BookmarkController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show(Bookmark $bookmark) {
-        return view('bookmark.show', [
+        return View::make('bookmark.show', [
             'bookmark' => $bookmark
         ]);
     }
@@ -61,7 +65,7 @@ class BookmarkController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(Bookmark $bookmark) {
-        return view('bookmark.edit', [
+        return View::make('bookmark.edit', [
             'bookmark' => $bookmark,
             'categories' => Category::all()
         ]);
@@ -76,7 +80,7 @@ class BookmarkController extends Controller {
      */
     public function update(BookmarkRequest $request, Bookmark $bookmark) {
         $bookmark->update($request->validated());
-        return redirect($bookmark->path());
+        return Redirect::route($bookmark->path());
     }
 
     /**

@@ -22,14 +22,17 @@ class BookmarkRequest extends FormRequest
      * @return array
      */
     public function rules() {
+
+        $id = isset($this->bookmark) ? $this->bookmark->id : NULL;
+
         return [
             'link_title' => [
                 'required',
                 'max:100',
-                Rule::unique('bookmarks')->ignore($this->bookmark->id)
+                Rule::unique('bookmarks')->ignore($id)
             ],
             'url' => 'required|url',
             'category_id' => 'nullable|sometimes|exists:App\Category,id'
         ];
     }
-}
+} 
