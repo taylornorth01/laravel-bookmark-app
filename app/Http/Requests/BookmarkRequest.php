@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class BookmarkRequest extends FormRequest
 {
@@ -17,12 +18,16 @@ class BookmarkRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
-     *
+     *  'required|max:100|unique:App\Bookmark,link_title'
      * @return array
      */
     public function rules() {
         return [
-            'link_title' => 'required|max:100|unique:App\Bookmark,link_title',
+            'link_title' => [
+                'required',
+                'max:100',
+                Rule::unique('bookmarks')->ignore($this->bookmark->id)
+            ],
             'url' => 'required|url',
             'category_id' => 'nullable|sometimes|exists:App\Category,id'
         ];
