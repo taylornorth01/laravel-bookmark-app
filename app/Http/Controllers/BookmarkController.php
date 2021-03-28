@@ -90,6 +90,7 @@ class BookmarkController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy(Bookmark $bookmark) {
-        //
+        $bookmark->delete();
+        return Redirect::route('bookmarks.index');
     }
 }

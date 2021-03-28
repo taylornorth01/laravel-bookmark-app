@@ -53,6 +53,11 @@
             <div>
                 <button>Cancel</button>
             </div>
+            <form method="POST" action="{{ route('bookmarks.destroy', $bookmark) }}">
+                @method('DELETE')
+                @csrf
+                <button type="submit">Delete</button>
+            </form>
         </div>
     </form>
 </div>
