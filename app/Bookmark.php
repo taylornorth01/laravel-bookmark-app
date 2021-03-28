@@ -11,4 +11,8 @@ class Bookmark extends Model {
     public function category() {
         return $this->belongsTo(Category::class);
     }
+
+    public function path() {
+        return route('bookmarks.show', $this);
+    }
 }
