@@ -2,13 +2,8 @@
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Bookmark Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
 Route::get('/bookmarks', 'BookmarkController@index')->name('bookmarks.index');
@@ -18,3 +13,11 @@ Route::get('/bookmarks/edit/{bookmark}', 'BookmarkController@edit')->name('bookm
 Route::get('/bookmarks/{bookmark}', 'BookmarkController@show')->name('bookmarks.show');
 Route::put('/bookmarks/{bookmark}', 'BookmarkController@update')->name('bookmarks.update');
 Route::delete('/bookmarks/{bookmark}', 'BookmarkController@destroy')->name('bookmarks.destroy');
+
+/*
+|--------------------------------------------------------------------------
+| Category Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/categories', 'CategoryController@index')->name('categories.index');
