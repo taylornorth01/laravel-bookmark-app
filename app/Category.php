@@ -16,4 +16,8 @@ class Category extends Model {
         $id = self::inRandomOrder()->take(1)->get('id');
         return $id->isNotEmpty() ? $id->first() : NULL;
     }
+
+    public function bookmarkPage(?int $page) {
+        return $this->bookmarks->forPage($page, 7);
+    }
 }

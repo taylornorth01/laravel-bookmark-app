@@ -7,6 +7,7 @@ use App\Category;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Redirect;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\CategoryRequest;
 
 
@@ -30,14 +31,12 @@ class CategoryController extends Controller {
         return Redirect::route('categories.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Category $category) {
-        //
+
+    public function show(Request $request, Category $category) {
+        return View::make('category.show', [
+            'category' => $category,
+            'bookmarks' => $category->bookmarkPage($request->input('page'))
+        ]);
     }
 
     /**
