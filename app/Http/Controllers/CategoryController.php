@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Redirect;
+
+use App\Http\Requests\CategoryRequest;
+
 
 class CategoryController extends Controller {
     
@@ -16,23 +19,15 @@ class CategoryController extends Controller {
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create() {
-        //
+        return View::make('category.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request) {
-        //
+
+    public function store(CategoryRequest $request) {
+        Category::create($request->validated());
+        return Redirect::route('categories.index');
     }
 
     /**
