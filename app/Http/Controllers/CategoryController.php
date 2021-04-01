@@ -16,7 +16,7 @@ class CategoryController extends Controller {
 
     public function index() {
         return View::make('category.index', [
-            'categories' => Category::latest()->paginate(7)
+            'categories' => Category::newest()
         ]);
     }
 

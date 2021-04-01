@@ -15,7 +15,7 @@ class BookmarkController extends Controller {
 
     public function index() {
         return View::make('bookmark.index', [
-            'bookmarks' => Bookmark::latest()->paginate(7)
+            'bookmarks' => Bookmark::newest()
         ]);
     }
 
