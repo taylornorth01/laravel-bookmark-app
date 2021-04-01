@@ -22,11 +22,11 @@ class Category extends Model {
 
 
     public function bookmarkPage(?int $page) {
-        return $this->bookmarks->forPage($page, config('paginate_amount'));
+        return $this->bookmarks->forPage($page, config('global.paginate'));
     }
 
-    
+
     public static function newest() {
-        return self::latest()->paginate(config('paginate_amount'));
+        return self::latest()->paginate(config('global.paginate'));
     }
 }

@@ -19,8 +19,8 @@ class Bookmark extends Model {
         return route('bookmarks.show', $this);
     }
 
-    
+
     public static function newest() {
-        return self::latest()->paginate(config('paginate_amount'));
+        return self::latest()->paginate(config('global.paginate'));
     }
 }

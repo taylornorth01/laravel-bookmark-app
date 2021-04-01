@@ -2,5 +2,5 @@
 
 return [
     'seed' => 553,
-    'paginate_amount' => 7
+    'paginate' => 7
 ];
