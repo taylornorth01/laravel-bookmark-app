@@ -1,6 +1,10 @@
 @extends('layout')
 
 @section('content')
+
+<a href="{{ route('categories.index') }}">
+    <button type="button">Category list</button>
+</a>
 <a href="{{ route('bookmarks.create') }}">
     <button type="button">Create bookmark</button>
 </a>
@@ -13,12 +17,12 @@
             <a>{{ $bookmark->url }}</a>
             <p>Created on: {{ $bookmark->publication_date }}</p>
             <p>Last visited: {{ $bookmark->date_last_accessed }}</p>
+            <div>
+                <a href="{{ route('bookmarks.edit', $bookmark) }}">
+                    <button type="button">Edit</button>
+                </a>
+            </div>
         </li>
-        <div>
-            <a href="{{ route('bookmarks.edit', $bookmark) }}">
-                <button type="button">Edit</button>
-            </a>
-        </div>
     @endforeach
 </ul>
 

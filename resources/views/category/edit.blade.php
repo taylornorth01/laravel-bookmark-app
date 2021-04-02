@@ -22,9 +22,6 @@
             <div>
                 <button type="submit">Submit</button>
             </div>
-            <div>
-                <button>Cancel</button>
-            </div>
         </div>
     </form>
     <form method="POST" action="{{ route('categories.destroy', $category) }}">
@@ -32,6 +29,9 @@
         @csrf
         <button type="submit">Delete</button>
     </form>
+    <a href="{{ route('categories.index') }}">
+        <button type="button">Cancel</button>
+    </a>
 </div>
 
 @endsection

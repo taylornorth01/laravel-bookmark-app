@@ -50,9 +50,6 @@
             <div>
                 <button type="submit">Submit</button>
             </div>
-            <div>
-                <button>Cancel</button>
-            </div>
         </div>
     </form>
     <form method="POST" action="{{ route('bookmarks.destroy', $bookmark) }}">
@@ -60,6 +57,9 @@
         @csrf
         <button type="submit">Delete</button>
     </form>
+    <a href="{{ route('bookmarks.index') }}">
+        <button type="button">Cancel</button>
+    </a>
 </div>
 
 @endsection

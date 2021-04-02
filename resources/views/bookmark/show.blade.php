@@ -1,7 +1,9 @@
 @extends('layout')
 
 @section('content')
-
+<a href="{{ route('bookmarks.index') }}">
+    <button type="button">Bookmark list</button>
+</a>
 <ul class="nostyle">
     <li>
         <h1>{{ $bookmark->link_title }}</h1>
