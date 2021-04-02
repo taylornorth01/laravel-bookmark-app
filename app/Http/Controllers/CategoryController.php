@@ -39,25 +39,15 @@ class CategoryController extends Controller {
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Category $category) {
-        //
+        return View::make('category.edit', compact('category'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Category $category) {
-        //
+
+    public function update(CategoryRequest $request, Category $category) {
+        $category->update($request->validated());
+        return Redirect::route('categories.show', compact('category'));
     }
 
     /**
