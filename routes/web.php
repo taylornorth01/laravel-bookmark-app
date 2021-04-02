@@ -24,6 +24,7 @@ Route::get('/categories', 'CategoryController@index')->name('categories.index');
 Route::post('/categories', 'CategoryController@store')->name('categories.store');
 Route::get('/categories/create', 'CategoryController@create')->name('categories.create');
 Route::get('/categories/edit/{category}', 'CategoryController@edit')->name('categories.edit');
+Route::get('/categories/{category}/bookmarks', 'CategoryController@bookmarks')->name('categories.bookmarks');
 Route::get('/categories/{category}', 'CategoryController@show')->name('categories.show');
 Route::put('/categories/{category}', 'CategoryController@update')->name('categories.update');
 Route::delete('/categories/{category}', 'CategoryController@destroy')->name('categories.destroy');

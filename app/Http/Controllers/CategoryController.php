@@ -32,11 +32,8 @@ class CategoryController extends Controller {
     }
 
 
-    public function show(Request $request, Category $category) {
-        return View::make('category.show', [
-            'category' => $category,
-            'bookmarks' => $category->bookmarkPage($request->input('page'))
-        ]);
+    public function show(Category $category) {
+        return View::make('category.show', compact('category'));
     }
 
 
@@ -54,5 +51,13 @@ class CategoryController extends Controller {
     public function destroy(Category $category) {
         $category->delete();
         return Redirect::route('categories.index');
+    }
+
+
+    public function bookmarks(Request $request, Category $category) {
+        return View::make('category.bookmark', [
+            'category' => $category,
+            'bookmarks' => $category->bookmarkPage($request->input('page'))
+        ]);
     }
 }
