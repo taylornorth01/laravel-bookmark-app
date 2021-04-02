@@ -27,6 +27,11 @@
             </div>
         </div>
     </form>
+    <form method="POST" action="{{ route('categories.destroy', $category) }}">
+        @method('DELETE')
+        @csrf
+        <button type="submit">Delete</button>
+    </form>
 </div>
 
 @endsection

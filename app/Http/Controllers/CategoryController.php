@@ -50,13 +50,9 @@ class CategoryController extends Controller {
         return Redirect::route('categories.show', compact('category'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Category $category) {
-        //
+        $category->delete();
+        return Redirect::route('categories.index');
     }
 }
