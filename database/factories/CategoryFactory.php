@@ -5,8 +5,14 @@
 use App\Category;
 use Faker\Generator as Faker;
 
+use Illuminate\Support\Str;
+
 $factory->define(Category::class, function (Faker $faker) {
+
+    $name = $faker->unique->word;
+
     return [
-        'category_name' => $faker->unique->word
+        'category_name' => $name,
+        'slug' => Str::slug($name)
     ];
 });

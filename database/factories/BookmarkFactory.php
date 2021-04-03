@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 $factory->define(Bookmark::class, function (Faker $faker) {
 
-    $title = $faker->sentence(3);
+    $title = $faker->unique->sentence(3);
 
     return [
         'link_title' => $title,
