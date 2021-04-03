@@ -36,7 +36,7 @@ class BookmarkController extends Controller {
     public function show(Bookmark $bookmark) {
         return View::make('bookmark.show', compact('bookmark'));
     }
-
+ 
 
     public function edit(Bookmark $bookmark) {
         return View::make('bookmark.edit', [
@@ -55,5 +55,11 @@ class BookmarkController extends Controller {
     public function destroy(Bookmark $bookmark) {
         $bookmark->delete();
         return Redirect::route('bookmarks.index');
+    }
+
+
+    public function accessed(Bookmark $bookmark) {
+        $bookmark->lastAccessed();
+        return Redirect::to($bookmark->url);
     }
 }

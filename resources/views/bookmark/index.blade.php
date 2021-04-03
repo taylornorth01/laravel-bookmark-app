@@ -21,6 +21,11 @@
                 <a href="{{ route('bookmarks.edit', $bookmark) }}">
                     <button type="button">Edit</button>
                 </a>
+                <form method="POST" action="{{ route('bookmarks.accessed', $bookmark) }}">
+                    @method('PUT')
+                    @csrf
+                    <button type="submit">Visit</button>
+                </form>
             </div>
         </li>
     @endforeach

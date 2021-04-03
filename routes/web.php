@@ -13,6 +13,7 @@ Route::get('/bookmarks/edit/{bookmark}', 'BookmarkController@edit')->name('bookm
 Route::get('/bookmarks/{bookmark}', 'BookmarkController@show')->name('bookmarks.show');
 Route::put('/bookmarks/{bookmark}', 'BookmarkController@update')->name('bookmarks.update');
 Route::delete('/bookmarks/{bookmark}', 'BookmarkController@destroy')->name('bookmarks.destroy');
+Route::put('/bookmarks/{bookmark}/link', 'BookmarkController@accessed')->name('bookmarks.accessed');
 
 /*
 |--------------------------------------------------------------------------
