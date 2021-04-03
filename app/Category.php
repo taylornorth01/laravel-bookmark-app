@@ -17,7 +17,7 @@ class Category extends Model {
 
     public static function takeRandomId() {
         $id = self::inRandomOrder()->take(1)->get('id');
-        return $id->isNotEmpty() ? $id->first() : NULL;
+        return $id->first() ?? NULL;
     }
 
 

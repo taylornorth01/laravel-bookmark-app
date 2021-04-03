@@ -32,7 +32,7 @@
             <div>
                 <label for="category_id">Categories:</label>
                 <select name="category_id" id="category_id">
-                    <option value="" selected>Pick a category</option>
+                    <option value="" selected>No category</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">
                                 {{ $category->category_name }}
