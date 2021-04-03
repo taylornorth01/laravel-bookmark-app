@@ -8,7 +8,14 @@ use Carbon\Carbon;
 class Bookmark extends Model {
     
 
-    protected $fillable = ['link_title', 'url', 'category_id', 'date_last_accessed'];
+    protected $fillable = [
+        'link_title', 'url', 'category_id', 'date_last_accessed', 'slug'
+    ];
+
+
+    public function getRouteKeyName() {
+        return 'slug';
+    }
 
 
     public function category() {
@@ -25,6 +32,7 @@ class Bookmark extends Model {
         return self::latest()->paginate(config('global.paginate'));
     }
 
+    
     public function lastAccessed() {
         $this->update(['date_last_accessed' => Carbon::now()]);
     }

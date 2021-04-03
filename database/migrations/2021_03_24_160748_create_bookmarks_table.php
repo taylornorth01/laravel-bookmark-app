@@ -17,6 +17,7 @@ class CreateBookmarksTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('category_id')->nullable();
             $table->string('link_title', 100);
+            $table->string('slug');
             $table->text('url');
             $table->timestamp('publication_date')->useCurrent();
             $table->timestamp('date_last_accessed')->useCurrent();
