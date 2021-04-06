@@ -54,10 +54,10 @@ class CategoryController extends Controller {
     }
 
 
-    public function bookmarks(Request $request, Category $category) {
+    public function bookmarks(Category $category) {
         return View::make('category.bookmark', [
             'category' => $category,
-            'bookmarks' => $category->bookmarkPage($request->input('page'))
+            'bookmarks' => $category->bookmarksPaginate()
         ]);
     }
 }

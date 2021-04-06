@@ -28,8 +28,8 @@ class Category extends Model {
     }
 
 
-    public function bookmarkPage(?int $page) {
-        return $this->bookmarks->forPage($page, config('global.paginate'));
+    public function bookmarksPaginate() {
+        return $this->bookmarks->paginate(config('global.paginate'));
     }
 
 

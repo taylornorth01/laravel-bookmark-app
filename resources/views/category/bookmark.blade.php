@@ -9,6 +9,7 @@
     <h1>{{ $category->category_name }}</h1>
     <p>Created on: {{ $category->created_at }}</p>
 </ul>
+{{ $bookmarks->links() }}
 <ul class="nostyle">
     @foreach ($bookmarks as $bookmark)
         <li>
