@@ -5,7 +5,6 @@
 use App\Bookmark;
 use App\Category;
 use Faker\Generator as Faker;
-
 use Illuminate\Support\Str;
 
 $factory->define(Bookmark::class, function (Faker $faker) {

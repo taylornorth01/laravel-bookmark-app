@@ -7,7 +7,6 @@ use Carbon\Carbon;
 
 class Bookmark extends Model {
     
-
     protected $fillable = [
         'link_title', 'url', 'category_id', 'date_last_accessed', 'slug'
     ];

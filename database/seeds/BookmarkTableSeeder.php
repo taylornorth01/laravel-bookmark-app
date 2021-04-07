@@ -3,16 +3,10 @@
 use Illuminate\Database\Seeder;
 use App\Bookmark;
 
-class BookmarkTableSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
+class BookmarkTableSeeder extends Seeder {
+    
+    public function run() {
         factory(Bookmark::class, config('global.seed'))
-        ->create();
+            ->create();
     }
 }

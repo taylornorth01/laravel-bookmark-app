@@ -3,17 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Redirect;
-
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryRequest;
 
-
 class CategoryController extends Controller {
     
-
     public function index() {
         return View::make('category.index', [
             'categories' => Category::newest()

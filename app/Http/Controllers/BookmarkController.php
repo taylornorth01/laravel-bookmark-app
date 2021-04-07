@@ -4,14 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Bookmark;
 use App\Category;
-
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Redirect;
-
 use App\Http\Requests\BookmarkRequest;
 
 class BookmarkController extends Controller {
-
 
     public function index() {
         return View::make('bookmark.index', [
