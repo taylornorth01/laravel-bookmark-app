@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Category;
 
-class CategoryTableSeeder extends Seeder {
+class CategorySeeder extends Seeder {
 
     public function run() {
         factory(Category::Class, ceil(config('global.seed') / 10))

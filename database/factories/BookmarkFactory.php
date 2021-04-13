@@ -15,7 +15,7 @@ $factory->define(Bookmark::class, function (Faker $faker) {
         'link_title' => $title,
         'slug' => Str::slug($title),
         'category_id' => Category::takeRandomId(),
-        'url' => $faker->url,
+        'url' => $faker->unique->url,
         'publication_date' => $faker->dateTimeThisYear('-2 months'),
         'date_last_accessed' => $faker->dateTimeThisMonth('-12 days')
     ];
